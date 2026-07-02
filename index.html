@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>PANKAJ KING™ | Stock Market Expert</title>
 
 <!-- Facebook Pixel -->
@@ -84,6 +83,7 @@ height:170px;
 border-radius:50%;
 object-fit:cover;
 display:block;
+background:#222;
 }
 
 /* HEADINGS */
@@ -108,6 +108,23 @@ color:#ffb300;
 font-weight:bold;
 }
 
+/* SOCIAL PROOF STRIP */
+
+.proof-strip{
+margin-top:18px;
+display:flex;
+justify-content:center;
+gap:18px;
+flex-wrap:wrap;
+font-size:14px;
+color:#ffb300;
+font-weight:bold;
+}
+
+.proof-strip span{
+opacity:.95;
+}
+
 /* INFO CARD */
 
 .info-box{
@@ -117,16 +134,15 @@ border:1px solid rgba(255,120,0,.3);
 padding:22px;
 border-radius:18px;
 box-shadow:0 0 25px rgba(255,102,0,.15);
+text-align:left;
 }
 
 .info-box p{
-line-height:1.8;
+line-height:1.9;
 font-size:17px;
 }
 
 /* BUTTON */
-
-/* TELEGRAM CTA BUTTON */
 
 .btn {
 display: inline-block;
@@ -139,13 +155,14 @@ border-radius: 14px;
 text-decoration: none;
 margin-top: 25px;
 position: relative;
+border: none;
+cursor: pointer;
+font-family: inherit;
 
-/* Animations */
 animation:
 bounce 1.5s infinite,
 bluePulse 2s infinite;
 
-/* Glow */
 box-shadow:
 0 0 15px rgba(0,136,204,0.7),
 0 0 30px rgba(0,136,204,0.4);
@@ -157,17 +174,21 @@ transition: all 0.3s ease;
 transform: scale(1.05);
 }
 
+.btn:disabled{
+opacity:.7;
+cursor:default;
+animation:none;
+}
+
 /* BOUNCE EFFECT */
 
 @keyframes bounce {
 0%, 20%, 50%, 80%, 100% {
 transform: translateY(0);
 }
-
 40% {
 transform: translateY(-10px);
 }
-
 60% {
 transform: translateY(-5px);
 }
@@ -181,20 +202,17 @@ box-shadow:
 0 0 0 0 rgba(0,136,204,0.8),
 0 0 15px rgba(0,136,204,0.7);
 }
-
 70% {
 box-shadow:
 0 0 0 25px rgba(0,136,204,0),
 0 0 25px rgba(0,136,204,0.5);
 }
-
 100% {
 box-shadow:
 0 0 0 0 rgba(0,136,204,0),
 0 0 15px rgba(0,136,204,0.7);
 }
 }
-
 
 /* URGENCY */
 
@@ -212,84 +230,22 @@ margin-top:25px;
 font-size:15px;
 line-height:2;
 opacity:.95;
-}
-
-/* SPONSOR SECTION */
-
-.sponsor-section{
-margin-top:60px;
-padding:25px;
-background:#111;
-border-top:3px solid #ff6600;
-text-align:center;
-}
-
-.sponsor-title{
-font-size:14px;
-letter-spacing:2px;
-color:#ffb300;
-text-transform:uppercase;
-margin-bottom:18px;
-}
-
-.agency-banner{
-width:100%;
-max-width:900px;
-border-radius:18px;
-display:block;
-margin:auto;
-box-shadow:0 0 25px rgba(255,102,0,.4);
-}
-
-.agency-content{
-margin-top:18px;
-}
-
-.agency-content h3{
-font-size:24px;
-margin-bottom:10px;
-color:#fff;
-}
-
-.agency-content p{
-color:#bbb;
-margin-bottom:18px;
-}
-
-.agency-btn{
+text-align:left;
 display:inline-block;
-padding:12px 24px;
-background:#ff6600;
-color:white;
-text-decoration:none;
-border-radius:10px;
-font-weight:bold;
 }
 
-/* ANIMATIONS */
-
-@keyframes pulse{
-0%{
-transform:scale(1);
-}
-50%{
-transform:scale(1.05);
-}
-100%{
-transform:scale(1);
-}
+.disclaimer{
+margin-top:30px;
+font-size:11px;
+line-height:1.6;
+color:#777;
+padding:0 6px;
 }
 
 @keyframes gradientMove{
-0%{
-background-position:0% 50%;
-}
-50%{
-background-position:100% 50%;
-}
-100%{
-background-position:0% 50%;
-}
+0%{ background-position:0% 50%; }
+50%{ background-position:100% 50%; }
+100%{ background-position:0% 50%; }
 }
 
 </style>
@@ -300,33 +256,33 @@ background-position:0% 50%;
 <div class="container">
 
 <div class="image-wrapper">
-<img src="profile copy.jpeg" class="profile-img" alt="Navjot Brar">
+<img src="profile.jpg" class="profile-img" alt="Pankaj King - Stock Market Expert">
 </div>
 
 <h1>👑 PANKAJ KING 👑</h1>
 
 <div class="subtitle">
 India's Leading Community For
-<span class="highlight">
-#Nifty #BankNifty #Stocks
-</span>
+<span class="highlight">#Nifty #BankNifty #Stocks</span>
+</div>
+
+<div class="proof-strip">
+<span>👥 10,000+ Members</span>
+<span>⭐ Since 2021</span>
 </div>
 
 <div class="info-box">
 <p>
-📈 Recover Your Trading Losses<br>
-💰 Potential High-Probability Trading Setups Daily<br>
-🚀 Live Market Updates & Analysis<br>
+📈 High-Probability Trading Setups Daily<br>
+💰 Live Market Updates &amp; Analysis<br>
+🚀 Risk Management Tips For Every Trade<br>
 🇮🇳 Trusted By Thousands Of Traders
 </p>
 </div>
 
-<a href="https://t.me/+TZSe9GqaCBQ4ZmJl"
-target="_blank"
-class="btn"
-onclick="fbq('track','Lead')">
+<button id="joinBtn" class="btn" type="button">
 👉 JOIN FREE TELEGRAM CHANNEL
-</a>
+</button>
 
 <div class="urgency">
 ⏳ Limited Free Access – Join Before Market Opens
@@ -340,40 +296,65 @@ onclick="fbq('track','Lead')">
 🔒 No Spam • 100% Transparency
 </div>
 
+<div class="disclaimer">
+Stock market investments are subject to market risk. Content shared in the channel is for educational purposes only and is not investment advice. Trade at your own discretion.
 </div>
-
-<!-- SEPARATE AGENCY SECTION -->
-
-<section class="sponsor-section">
-
-<div class="sponsor-title">
-Sponsored By
-</div>
-
-<!-- Replace image path -->
-
-<img src="apex-banner.jpg"
-alt="Apex Marketing Agency"
-class="agency-banner">
-
-<div class="agency-content">
-
-<h3>🚀 Apex Marketing Agency</h3>
-
-<p>
-Meta Ads • Lead Generation • Telegram Growth •
-Brand Building • Performance Marketing
-</p>
-
-<a href="https://t.me/apexdigitall"
-target="_blank"
-class="agency-btn">
-Contact @Apex_Advert
-</a>
 
 </div>
 
-</section>
+<script>
+(function(){
+var TELEGRAM_URL = "https://t.me/+TZSe9GqaCBQ4ZmJl";
+var btn = document.getElementById('joinBtn');
+var firedLead = false;
+
+function fireLeadOnce(){
+if(firedLead) return;
+firedLead = true;
+fbq('track','Lead');
+}
+
+btn.addEventListener('click', function(){
+// Open Telegram immediately so the click never feels slow
+var win = window.open(TELEGRAM_URL, '_blank');
+
+btn.disabled = true;
+btn.textContent = '✅ Opening Telegram...';
+
+// Only count this as a real Lead if the visitor actually left the
+// page (switched to the Telegram app/tab) within a few seconds of
+// clicking. A click that goes nowhere (broken link, blocked popup,
+// accidental tap) will NOT be counted, which keeps Meta's optimization
+// signal accurate instead of training it on clicks that never convert.
+var leftPage = false;
+
+function onHiddenOrBlurred(){
+leftPage = true;
+fireLeadOnce();
+}
+
+document.addEventListener('visibilitychange', function handler(){
+if(document.hidden){
+onHiddenOrBlurred();
+document.removeEventListener('visibilitychange', handler);
+}
+});
+
+window.addEventListener('blur', function handler(){
+onHiddenOrBlurred();
+window.removeEventListener('blur', handler);
+});
+
+// Re-enable the button after a few seconds in case the redirect
+// failed (popup blocked, no Telegram app, etc.) so the visitor can
+// try again.
+setTimeout(function(){
+btn.disabled = false;
+btn.textContent = '👉 JOIN FREE TELEGRAM CHANNEL';
+}, 4000);
+});
+})();
+</script>
 
 </body>
 </html>
