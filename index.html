@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pankaj Bhardwaj | Stock Market Expert</title>
+<title>PANKAJ KING™ | Stock Market Expert</title>
 
 <!-- Facebook Pixel -->
 <script>
@@ -162,6 +162,12 @@ transition: all 0.3s ease;
 transform: scale(1.05);
 }
 
+.btn:disabled{
+opacity:.7;
+cursor:default;
+animation:none;
+}
+
 @keyframes bounce {
 0%, 20%, 50%, 80%, 100% {
 transform: translateY(0);
@@ -233,11 +239,11 @@ padding:0 6px;
 <img src="profile.jpg" class="profile-img" alt="Pankaj King - Stock Market Expert">
 </div>
 
-<h1>👑 Pankaj Bhardwaj 👑</h1>
+<h1>👑 PANKAJ KING 👑</h1>
 
-<a class="btn joinBtn" href="https://telegram.me/+jVfu4LdfrPdkODg1" target="_blank" rel="noopener">
+<button class="btn joinBtn" type="button">
 👉 JOIN FREE TELEGRAM CHANNEL
-</a>
+</button>
 
 <div class="subtitle">
 India's Leading Community For
@@ -258,9 +264,9 @@ India's Leading Community For
 </p>
 </div>
 
-<a class="btn joinBtn" href="https://telegram.me/+jVfu4LdfrPdkODg1" target="_blank" rel="noopener">
+<button class="btn joinBtn" type="button">
 👉 JOIN FREE TELEGRAM CHANNEL
-</a>
+</button>
 
 <div class="urgency">
 ⏳ Limited Free Access – Join Before Market Opens
@@ -280,6 +286,54 @@ Stock market investments are subject to market risk. Content shared in the chann
 
 </div>
 
+<script>
+(function(){
+var TELEGRAM_URL = "https://telegram.me/+jVfu4LdfrPdkODg1";
+var buttons = document.querySelectorAll('.joinBtn');
+var firedLead = false;
+
+function fireLeadOnce(){
+if(firedLead) return;
+firedLead = true;
+fbq('track','Lead');
+}
+
+buttons.forEach(function(btn){
+btn.addEventListener('click', function(){
+window.open(TELEGRAM_URL, '_blank');
+
+var originalText = btn.textContent;
+buttons.forEach(function(b){
+b.disabled = true;
+});
+btn.textContent = '✅ Opening Telegram...';
+
+function onHiddenOrBlurred(){
+fireLeadOnce();
+}
+
+document.addEventListener('visibilitychange', function handler(){
+if(document.hidden){
+onHiddenOrBlurred();
+document.removeEventListener('visibilitychange', handler);
+}
+});
+
+window.addEventListener('blur', function handler(){
+onHiddenOrBlurred();
+window.removeEventListener('blur', handler);
+});
+
+setTimeout(function(){
+buttons.forEach(function(b){
+b.disabled = false;
+b.textContent = originalText;
+});
+}, 4000);
+});
+});
+})();
+</script>
 
 </body>
 </html>
