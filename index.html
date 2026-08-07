@@ -3,170 +3,408 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NAVJOT | Market Education</title>
+<title>Salman Memon Trader | Market Analysis Channel</title>
+<meta name="description" content="Join Pankaj Bhardwaj's Telegram channel — free Nifty, BankNifty & Sensex market analysis for 40,000+ traders.">
 
-<!-- ============================================================
-  EDIT THESE VALUES ONLY
-  TELEGRAM_LINK   -> your t.me invite link (used by every join button)
-  PIXEL_ID        -> your Meta Pixel ID
-  PROFILE_IMG     -> path/URL to your photo
-============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --bg:#0a0f1c;
-    --bg-panel:#101830;
-    --fg:#e9ecf5;
-    --fg-muted:#94a1c2;
-    --gold:#2AABEE;
-    --gold-bright:#6FC8F5;
-    --gold-gradient:linear-gradient(135deg,#2AABEE,#229ED9);
-    --line:rgba(233,236,245,0.10);
-    --up:#2f8f6f;
-    --down:#b0463f;
+    --bg:#0B0F14;
+    --panel:#111820;
+    --line:#2A3B36;
+    --line-soft:rgba(110,231,183,0.28);
+    --text:#F3F5F4;
+    --muted:#9AA5A1;
+    --mint:#6EE7B7;
+    --mint-bright:#7FF5C4;
+    --mint-glow:rgba(110,231,183,0.35);
   }
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
   body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
     background:var(--bg);
-    color:var(--fg);
-    line-height:1.6;
-    padding-bottom:86px;
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    justify-content:center;
+    padding:36px 16px 60px;
   }
-  a{color:inherit;}
-  .wrap{max-width:480px;margin:0 auto;padding:0 20px;}
 
-  .ticker{width:100%;overflow:hidden;background:var(--bg-panel);border-bottom:1px solid var(--line);padding:10px 0;}
-  .ticker-track{display:flex;gap:28px;width:max-content;animation:scroll 22s linear infinite;font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:12px;color:var(--fg-muted);}
-  .ticker-track span{white-space:nowrap;}
-  .ticker-track .up{color:var(--up);}
-  .ticker-track .down{color:var(--down);}
-  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .page{
+    width:100%;
+    max-width:460px;
+    text-align:center;
+  }
 
-  .hero{padding:40px 0 8px;text-align:center;}
-  .avatar-ring{display:inline-block;padding:4px;border-radius:50%;background:conic-gradient(from 180deg, var(--gold), var(--gold-bright), var(--gold));margin-bottom:22px;}
-  .avatar{width:104px;height:104px;border-radius:50%;object-fit:cover;display:block;background:#1a2340;border:3px solid var(--bg);}
-  .eyebrow{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:14px;}
-  h1{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:30px;line-height:1.2;margin-bottom:10px;}
-  .role{font-size:15px;color:var(--fg-muted);margin-bottom:4px;}
-  .focus{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:13px;color:var(--gold);margin-bottom:26px;}
+  a{ text-decoration:none; color:inherit; }
 
-  .panel{background:var(--bg-panel);border:1px solid var(--line);border-radius:14px;padding:22px 20px;margin-bottom:18px;text-align:left;}
-  .panel h3{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:16px;margin-bottom:14px;}
-  .curriculum-item{display:flex;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:14px;}
-  .curriculum-item:first-of-type{border-top:none;padding-top:0;}
-  .curriculum-item .mark{font-family:ui-monospace,"SF Mono",Consolas,monospace;color:var(--gold);flex-shrink:0;}
+  .pulse-dot{
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--mint);
+    display:inline-block;
+    position:relative;
+  }
+  .pulse-dot::after{
+    content:"";
+    position:absolute;
+    inset:-4px;
+    border-radius:50%;
+    background:var(--mint);
+    opacity:0.5;
+    animation:pulse-ring 2s ease-out infinite;
+  }
+  @keyframes pulse-ring{
+    0%{ transform:scale(0.6); opacity:0.6; }
+    70%{ transform:scale(2.2); opacity:0; }
+    100%{ transform:scale(2.2); opacity:0; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .pulse-dot::after{ animation:none; display:none; }
+  }
 
-  .cta-btn{display:block;width:100%;background:var(--gold-gradient);color:#fff;font-weight:600;font-size:16px;text-align:center;padding:16px 20px;border-radius:10px;text-decoration:none;margin:22px 0 10px;animation:ctaPulse 2.2s infinite;}
-  .cta-btn:active{transform:scale(.98);}
-  .cta-sub{text-align:center;font-size:12px;color:var(--fg-muted);margin-bottom:30px;}
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    border:1px solid var(--line-soft);
+    border-radius:100px;
+    padding:9px 18px;
+    font-size:13.5px;
+    color:var(--mint);
+    box-shadow:0 0 22px -6px var(--mint-glow);
+  }
 
-  .disclaimer{font-size:11.5px;color:var(--fg-muted);background:rgba(255,255,255,0.04);border:1px solid var(--line);border-radius:10px;padding:14px 16px;line-height:1.65;margin-bottom:30px;}
-  .disclaimer b{color:var(--fg);}
+  .top-pill{ margin-bottom:28px; }
 
-  .page-footer{text-align:center;padding:20px 0 30px;font-size:13px;color:rgba(233,236,245,0.35);}
-  .page-footer a{text-decoration:underline;margin:0 6px;}
+  .avatar-wrap{
+    position:relative;
+    width:130px;
+    height:130px;
+    margin:0 auto 22px;
+  }
+  .avatar{
+    width:100%; height:100%;
+    border-radius:50%;
+    border:2px solid var(--mint);
+    box-shadow:0 0 34px -4px var(--mint-glow), 0 0 0 6px rgba(110,231,183,0.06);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(160deg,#16221D,#0C1310);
+    font-size:44px;
+    font-weight:700;
+    color:var(--mint);
+    animation:glow-breathe 3.4s ease-in-out infinite;
+    overflow:hidden;
+  }
+  .avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+  }
+  @keyframes glow-breathe{
+    0%,100%{ box-shadow:0 0 34px -4px var(--mint-glow), 0 0 0 6px rgba(110,231,183,0.06); }
+    50%{ box-shadow:0 0 50px 2px var(--mint-glow), 0 0 0 8px rgba(110,231,183,0.10); }
+  }
+  .verify-badge{
+    position:absolute;
+    bottom:2px; right:2px;
+    width:30px; height:30px;
+    background:var(--mint);
+    border-radius:50%;
+    border:3px solid var(--bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:15px;
+    color:#0B0F14;
+  }
 
-  .sticky-bar{position:fixed;left:0;right:0;bottom:0;background:rgba(10,15,28,0.92);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:12px 16px;z-index:50;}
-  .sticky-bar .inner{max-width:480px;margin:0 auto;}
-  .sticky-btn{display:block;width:100%;text-align:center;background:var(--gold-gradient);color:#fff;font-weight:600;font-size:15px;padding:14px 18px;border-radius:9px;text-decoration:none;animation:ctaPulse 2.2s infinite;}
+  .verified-pill{ margin-bottom:18px; }
 
-  @keyframes ctaPulse{0%{box-shadow:0 0 0 0 rgba(42,171,238,0.55);}70%{box-shadow:0 0 0 14px rgba(42,171,238,0);}100%{box-shadow:0 0 0 0 rgba(42,171,238,0);}}
-  @media (prefers-reduced-motion: reduce){.cta-btn,.sticky-btn,.ticker-track{animation:none;}}
-  :focus-visible{outline:2px solid var(--gold-bright);outline-offset:2px;}
+  h1{
+    font-size:29px;
+    font-weight:800;
+    letter-spacing:-0.3px;
+    margin-bottom:10px;
+  }
+
+  .tagline{
+    color:var(--muted);
+    font-size:14.5px;
+    margin-bottom:10px;
+  }
+
+  .rating{
+    font-size:14px;
+    color:var(--muted);
+    margin-bottom:22px;
+  }
+  .rating .stars{ color:#F4C752; letter-spacing:1px; }
+
+  .stat-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-bottom:30px;
+  }
+  .stat-chip{
+    border:1px solid var(--line-soft);
+    border-radius:12px;
+    padding:14px 6px;
+    background:rgba(110,231,183,0.03);
+  }
+  .stat-chip b{
+    display:block;
+    color:var(--mint);
+    font-size:17px;
+    margin-bottom:2px;
+  }
+  .stat-chip span{
+    font-size:11.5px;
+    color:var(--muted);
+  }
+
+  .divider{
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--line), transparent);
+    margin:30px 0;
+  }
+
+  .headline{
+    font-size:23px;
+    font-weight:700;
+    line-height:1.4;
+    margin-bottom:24px;
+  }
+  .headline .mint{ color:var(--mint); }
+
+  .urgency-pill{
+    justify-content:center;
+    width:100%;
+    margin-bottom:22px;
+    font-size:13px;
+  }
+  .urgency-pill span.divider-dot{ color:var(--muted); }
+
+  .cta-wrap{
+    position:relative;
+    margin-bottom:16px;
+  }
+  .cta-wrap::before,
+  .cta-wrap::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:14px;
+    border:2px solid var(--mint);
+    opacity:0;
+    animation:cta-pulse-ring 2.4s ease-out infinite;
+    pointer-events:none;
+  }
+  .cta-wrap::after{ animation-delay:1.2s; }
+  @keyframes cta-pulse-ring{
+    0%{ transform:scale(1); opacity:0.55; }
+    100%{ transform:scale(1.09); opacity:0; }
+  }
+
+  .cta-btn{
+    position:relative;
+    z-index:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    background:linear-gradient(135deg, var(--mint-bright), var(--mint));
+    color:#07110D;
+    font-weight:700;
+    font-size:16.5px;
+    padding:19px 20px;
+    border-radius:14px;
+    border:none;
+    cursor:pointer;
+    box-shadow:0 0 30px -4px var(--mint-glow);
+    animation:cta-glow 2.6s ease-in-out infinite;
+    transition:transform .15s ease;
+  }
+  .cta-btn:active{ transform:scale(0.98); }
+  @keyframes cta-glow{
+    0%,100%{ box-shadow:0 0 24px -4px var(--mint-glow); }
+    50%{ box-shadow:0 0 42px 4px var(--mint-glow); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .cta-wrap::before, .cta-wrap::after{ animation:none; display:none; }
+    .cta-btn{ animation:none; }
+  }
+
+  .sub-note{
+    color:var(--muted);
+    font-size:13.5px;
+    line-height:1.6;
+    margin-bottom:26px;
+  }
+
+  .check-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    border:1px solid var(--line-soft);
+    border-radius:12px;
+    padding:16px 18px;
+    margin-bottom:12px;
+    text-align:left;
+    background:rgba(110,231,183,0.02);
+  }
+  .check-icon{
+    flex:none;
+    width:26px; height:26px;
+    border-radius:50%;
+    background:var(--mint);
+    color:#0B0F14;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+  }
+  .check-row p{ font-size:14.5px; }
+
+  .bottom-note{
+    color:var(--muted);
+    font-size:13px;
+    margin:18px 0 30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+  }
+
+  .disclaimer{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.7;
+    text-align:center;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    opacity:0.75;
+  }
+  .disclaimer b{ color:#B7C0BC; }
 </style>
 </head>
-
 <body>
 
-  <div class="ticker">
-    <div class="ticker-track" aria-hidden="true">
-      <span>NIFTY 50 <span class="up">&#9650; 24,812</span></span>
-      <span>BANK NIFTY <span class="down">&#9660; 51,204</span></span>
-      <span>SENSEX <span class="up">&#9650; 81,340</span></span>
-      <span>INDIA VIX <span class="down">&#9660; 12.4</span></span>
-      <span>NIFTY 50 <span class="up">&#9650; 24,812</span></span>
-      <span>BANK NIFTY <span class="down">&#9660; 51,204</span></span>
-      <span>SENSEX <span class="up">&#9650; 81,340</span></span>
-      <span>INDIA VIX <span class="down">&#9660; 12.4</span></span>
-    </div>
+<!-- ============ META PIXEL ============ -->
+<!-- Replace YOUR_PIXEL_ID_HERE (appears twice) with your real Pixel ID in your code editor. -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1529624314673778');
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"
+/>
+</noscript>
+<!-- ============ END META PIXEL ============ -->
+
+<div class="page">
+
+  <div class="pill top-pill">
+    <span class="pulse-dot"></span>
+    LIVE &nbsp;•&nbsp; <span id="onlineCount">5,747 traders online now</span>
   </div>
 
-  <div class="wrap">
-
-    <div class="hero">
-      <div class="avatar-ring">
-        <img src="brarji.webp" alt="Pankaj" class="avatar" width="104" height="104">
-      </div>
-      <div class="eyebrow">Market Education</div>
-      <h1>NAVJOT BRAR</h1>
-      <div class="role">Reading charts the way the market actually moves</div>
-      <div class="focus">#Nifty &middot; #BankNifty &middot; #PriceAction</div>
+  <div class="avatar-wrap">
+    <div class="avatar">
+      <!-- Replace src below with your own photo file/URL. Falls back to "PB" if the image fails to load. -->
+      <img src="salman-memon-trader.jpeg" alt="Salman Memon Trader" onerror="this.parentElement.textContent='PB';">
     </div>
-
-    <div class="panel">
-      <h3>Inside the free channel</h3>
-      <div class="curriculum-item"><span class="mark">01</span><span>Technical analysis fundamentals &mdash; support, resistance, trend structure</span></div>
-      <div class="curriculum-item"><span class="mark">02</span><span>How to read Nifty &amp; Bank Nifty charts session by session</span></div>
-      <div class="curriculum-item"><span class="mark">03</span><span>Building your own analytical process, not copy-paste calls</span></div>
-    </div>
-
-    <a href="#" target="_blank" rel="noopener" class="cta-btn join-btn">
-      Join the Free Telegram Channel
-    </a>
-    <div class="cta-sub">Join 1000s learning the market properly</div>
-
-    <div class="disclaimer">
-      <b>Educational purpose only.</b> Content shared on this channel is for learning technical analysis and market structure. It is not investment advice, a buy/sell recommendation, or a guarantee of returns. Markets carry risk, including loss of capital &mdash; please do your own research or consult a SEBI-registered advisor before trading.
-    </div>
-
-    <div class="page-footer">
-      Ads Managed by <a href="https://t.me/ad_by_king">Ads_By_King</a>
-    </div>
-
+    <div class="verify-badge">✓</div>
   </div>
 
-  <div class="sticky-bar">
-    <div class="inner">
-      <a href="#" target="_blank" rel="noopener" class="sticky-btn join-btn">
-        Join Free Telegram Channel
+  <div class="pill verified-pill">✓ Verified Original Channel</div>
+
+  <h1>Salman Memon Trader</h1>
+  <p class="tagline">📈 Nifty, BankNifty &amp; Sensex Market Analysis</p>
+  <p class="rating"><span class="stars">★★★★★</span> Trusted by 40,000+ traders</p>
+
+  <div class="stat-row">
+    <div class="stat-chip"><b>40K+</b><span>Subscribers</span></div>
+    <div class="stat-chip"><b>Daily</b><span>Updates</span></div>
+    <div class="stat-chip"><b>100%</b><span>Free Access</span></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <p class="headline">
+    Join Salman Memon Trader channel for free
+    <span class="mint">Nifty, BankNifty &amp; Sensex</span>
+    market analysis — no paid calls, ever.
+  </p>
+
+  <div class="pill urgency-pill">
+    ⚡ 40,000+ traders already inside <span class="divider-dot">·</span> Free, no strings attached
+  </div>
+
+  <div class="cta-wrap">
+    <button class="cta-btn" onclick="joinChannel()">Join Free Telegram Channel</button>
+  </div>
+  <p class="sub-note">Join traders receiving free daily market updates and analysis.</p>
+
+  <div class="check-row"><div class="check-icon">✓</div><p>Daily Nifty &amp; BankNifty Levels</p></div>
+  <div class="check-row"><div class="check-icon">✓</div><p>Purely Educational — No Paid Tips</p></div>
+  <div class="check-row"><div class="check-icon">✓</div><p>Straightforward, No-Noise Updates</p></div>
+  <div class="check-row"><div class="check-icon">✓</div><p>40,000+ Subscribers Already In</p></div>
+
+  <div class="cta-wrap" style="margin-top:20px;">
+    <button class="cta-btn" onclick="joinChannel()">Join Free Telegram Channel</button>
+  </div>
+  <p class="bottom-note">🕐 Free to join · Leave anytime</p>
+
+  <!-- Ad Management Tagline -->
+    <div style="margin-top:20px; font-size:13px; opacity:0.8; text-align: center;">
+      🚀 Ads Managed by Ads_By_King 
+      <a href="https://t.me/ad_by_king"
+         target="_blank"
+         rel="noopener noreferrer"
+         style="color:#ffd700; text-decoration:none; font-weight:bold;">
+         Contact @Ads_By_King
       </a>
     </div>
+
+  <div class="disclaimer">
+    <b>Disclaimer:</b> This channel is for educational and informational purposes only.
+    We do not provide investment advice or guaranteed returns. Trading in the stock market
+    involves risk. Please consult your financial advisor before making any investment decisions.
   </div>
+ 
+</div>
 
-  <!-- ============================================================
-    SINGLE SOURCE OF TRUTH: change the link in ONE place below.
-    Every join button on the page (mid CTA, sticky bar, any you add
-    later with class="join-btn") reads from this constant.
-  ============================================================ -->
-  <script>
-    var TELEGRAM_LINK = "https://t.me/+FOTskeXm_PJlNzdl";
-  </script>
+<script>
+  // Replace with your actual Telegram channel invite link.
+  const TELEGRAM_LINK = "https://t.me/+FOTskeXm_PJlNzdl";
 
-  <!-- Meta Pixel: loaded async, does not block render -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1529624314673778'); /* PIXEL_ID */
-  fbq('track', 'PageView');
-
-  // Apply the single link to every join button, and fire one Lead
-  // event per click, no matter how many buttons exist on the page.
-  document.querySelectorAll('.join-btn').forEach(function(el){
-    el.setAttribute('href', TELEGRAM_LINK);
-    el.addEventListener('click', function(){
-      fbq('track', 'Lead', { content_name: 'telegram_join' });
-    });
-  });
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1440444807915655&ev=PageView&noscript=1"/></noscript>
+  function joinChannel(){
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead');
+    }
+    window.location.href = TELEGRAM_LINK;
+  }
+</script>
 
 </body>
 </html>
+
